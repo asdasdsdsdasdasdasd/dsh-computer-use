@@ -1,0 +1,38 @@
+{
+  "name": "dsh-computer-use",
+  "description": "DeepSeek Harness plugin: Linux X11 computer-use tools (screenshot, mouse, keyboard) via a Python XTest helper",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "xc.py",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "computer-use",
+    "x11"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asdasdsdsdasdasdasd/dsh-computer-use.git"
+  },
+  "bugs": {
+    "url": "https://github.com/asdasdsdsdasdasdasd/dsh-computer-use/issues"
+  },
+  "homepage": "https://github.com/asdasdsdsdasdasdasd/dsh-computer-use#readme",
+  "license": "MIT"
+}

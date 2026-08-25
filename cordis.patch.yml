@@ -1,0 +1,6 @@
+# dsh-computer-use bundle layer.
+# Inserts the X11 computer-control plugin. Helper defaults to xc.py next to
+# index.js; override helper / shotDir / sandboxMode in the profile patch if needed.
+- insert:
+    - id: computer-use
+      name: dsh-computer-use
