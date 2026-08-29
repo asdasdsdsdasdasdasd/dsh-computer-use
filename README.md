@@ -4,11 +4,11 @@
 
 A [DeepSeek Harness](https://github.com/deepseek-harness/deepseek-harness) plugin that lets the agent **see and operate a Linux X11 desktop**: screenshot, move/click/drag/scroll the mouse, type text, and send key combos.
 
-> **The Linux/X11 computer-use plugin for DeepSeek Harness.** Most computer-use plugins target macOS or Windows — if your agent runs on a Linux box with a real graphical session, this is the one that works, with zero heavy dependencies.
+> **The Linux/X11 computer-use plugin for DeepSeek Harness.** Most computer-use plugins target macOS or Windows — if your agent runs on a **Linux** box with a real graphical session, this is the one that works, with **zero heavy dependencies** (no Node native modules, no PowerShell, no accessibility framework).
 
 This is **not** an official DeepSeek package. It drives the real pointer and keyboard through XTest. Treat it as full desktop control.
 
-![Demo](docs/screenshot.png)
+![Demo](demo/demo.gif)
 
 ## Which computer-use plugin is right for you?
 

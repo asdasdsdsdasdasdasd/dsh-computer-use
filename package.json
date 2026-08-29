@@ -27,7 +27,14 @@
     "dsh-plugin",
     "deepseek-harness",
     "computer-use",
-    "x11"
+    "x11",
+    "linux",
+    "xtest",
+    "keyboard",
+    "mouse",
+    "desktop-automation",
+    "screenshot",
+    "automation"
   ],
   "repository": {
     "type": "git",
