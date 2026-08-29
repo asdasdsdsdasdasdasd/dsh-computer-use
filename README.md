@@ -55,7 +55,7 @@ Linux **X11** only. Not Wayland, macOS, or Windows.
 Debian/Ubuntu:
 
 ```sh
-sudo apt install python3 libx11-6 libxtst6 imagemagick
+sudo bash scripts/install-deps.sh   # apt install python3 libx11-6 libxtst6 imagemagick
 python3 xc.py info
 ```
 
