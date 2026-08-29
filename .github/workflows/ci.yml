@@ -22,8 +22,8 @@ jobs:
           sudo apt-get install -y libx11-6 libxtst6 imagemagick xvfb
       - name: Syntax check xc.py
         run: python3 -m py_compile xc.py
-      - name: Smoke test under Xvfb
+      - name: Run xc.py test suite under Xvfb
         run: |
-          xvfb-run -a --server-args="-screen 0 1280x900x24" python3 -c "import subprocess,sys; print(subprocess.run([sys.executable,'xc.py','info'],capture_output=True,text=True).stdout)"
+          xvfb-run -a --server-args="-screen 0 1280x900x24" python3 tests/test_xc.py --x
       - name: Syntax-check index.js
         run: node --check index.js
