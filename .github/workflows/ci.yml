@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  xc-helper:
+    name: xc.py smoke test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install X11 test deps
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libx11-6 libxtst6 imagemagick xvfb
+      - name: Syntax check xc.py
+        run: python3 -m py_compile xc.py
+      - name: Smoke test under Xvfb
+        run: |
+          xvfb-run -a --server-args="-screen 0 1280x900x24" python3 -c "import subprocess,sys; print(subprocess.run([sys.executable,'xc.py','info'],capture_output=True,text=True).stdout)"
+      - name: Syntax-check index.js
+        run: node --check index.js

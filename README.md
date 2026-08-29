@@ -1,6 +1,6 @@
 # dsh-computer-use
 
-![DeepSeek Harness](https://img.shields.io/badge/DeepSeek%20Harness-plugin-blue) ![Platform](https://img.shields.io/badge/platform-Linux%20X11-2ea44f) ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![DeepSeek Harness](https://img.shields.io/badge/DeepSeek%20Harness-plugin-blue) ![Platform](https://img.shields.io/badge/platform-Linux%20X11-2ea44f) ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![CI](https://github.com/asdasdsdsdasdasdasd/dsh-computer-use/actions/workflows/ci.yml/badge.svg)
 
 A [DeepSeek Harness](https://github.com/deepseek-harness/deepseek-harness) plugin that lets the agent **see and operate a Linux X11 desktop**: screenshot, move/click/drag/scroll the mouse, type text, and send key combos.
 
@@ -35,6 +35,8 @@ This is **not** an official DeepSeek package. It drives the real pointer and key
 | `computer_key` | Send a key or combo (`enter`, `ctrl+s`, `alt+F4`) |
 | `computer_cursor` | Read the current pointer position |
 | `computer_screen_info` | Screen geometry + XTest availability |
+
+See [examples.md](examples.md) for end-to-end usage.
 
 Coordinates are **native X11 pixels**, not pixels of a downscaled screenshot. Every screenshot reports `scale` (and `region` offset) so:
 
