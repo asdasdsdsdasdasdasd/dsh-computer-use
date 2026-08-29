@@ -1,0 +1,27 @@
+---
+name: Bug report
+about: Report a problem with dsh-computer-use
+title: "[Bug] "
+labels: bug
+assignees: ''
+---
+
+**Describe the bug**
+<!-- A clear and concise description of what happened. -->
+
+**Reproduction steps**
+1. Run `python3 xc.py info`
+2. …(the command that misbehaves)
+3. …
+
+**Expected vs actual**
+<!-- What did you expect, and what happened? Include the exact JSON output. -->
+
+**Environment**
+- OS / distro: (e.g. Ubuntu 24.04)
+- `DISPLAY`: (e.g. `:1`)
+- `python3 xc.py info` output:
+  <!-- paste the JSON here -->
+
+**Additional context**
+<!-- Anything else that might help, e.g. screenshots, logs. -->
