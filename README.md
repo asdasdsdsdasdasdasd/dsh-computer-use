@@ -1,8 +1,26 @@
 # dsh-computer-use
 
+![DeepSeek Harness](https://img.shields.io/badge/DeepSeek%20Harness-plugin-blue) ![Platform](https://img.shields.io/badge/platform-Linux%20X11-2ea44f) ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 A [DeepSeek Harness](https://github.com/deepseek-harness/deepseek-harness) plugin that lets the agent **see and operate a Linux X11 desktop**: screenshot, move/click/drag/scroll the mouse, type text, and send key combos.
 
+> **The Linux/X11 computer-use plugin for DeepSeek Harness.** Most computer-use plugins target macOS or Windows — if your agent runs on a Linux box with a real graphical session, this is the one that works, with zero heavy dependencies.
+
 This is **not** an official DeepSeek package. It drives the real pointer and keyboard through XTest. Treat it as full desktop control.
+
+![Demo](docs/screenshot.png)
+
+## Which computer-use plugin is right for you?
+
+| Plugin | Platform | Approach |
+| --- | --- | --- |
+| **dsh-computer-use (this one)** | **Linux X11** | Python `ctypes` + **XTest** — screenshot + real mouse/keyboard |
+| [Anionex/dsh-computer-use](https://github.com/Anionex/dsh-computer-use) | macOS | Accessibility-first |
+| [ZRui-C/dsh-computer-use](https://github.com/ZRui-C/dsh-computer-use) | macOS | Accessibility-first + Chromium CDP |
+| [jing-hy/computer-user](https://github.com/jing-hy/computer-user) | Windows | PowerShell + Win32 SendInput |
+| [qphotoai/dsh-computer-use-windows](https://github.com/qphotoai/dsh-computer-use-windows) | Windows | UIA + cua-driver |
+
+**Pick `dsh-computer-use` if your agent runs on Linux X11.** No Node build step, no PowerShell, no accessibility framework — just `python3`, `libX11`, `libXtst`, and ImageMagick.
 
 ## What it adds
 
@@ -40,6 +58,14 @@ python3 xc.py info
 ```
 
 `xc.py info` should print JSON with screen width/height and `"xtest": true`.
+
+## How it works
+
+The plugin ships a tiny Python helper `xc.py` that talks to the X server through `ctypes` (`libX11` + `libXtst`), so it needs **no external Python packages** and no Node native modules. Every input action reports the **native pixel coordinates the OS actually registered**, and every input action can optionally attach a fresh screenshot (`observeAfterAction`) so the model can immediately verify the result.
+
+```text
+DSH agent ──► index.js (Cordis tools) ──► xc.py (ctypes/libX11+libXtst) ──► X server ──► your desktop
+```
 
 ## Install
 
