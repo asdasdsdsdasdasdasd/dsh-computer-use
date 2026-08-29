@@ -63,7 +63,7 @@ python3 xc.py info
 
 ## How it works
 
-The plugin ships a tiny Python helper `xc.py` that talks to the X server through `ctypes` (`libX11` + `libXtst`), so it needs **no external Python packages** and no Node native modules. Every input action reports the **native pixel coordinates the OS actually registered**, and every input action can optionally attach a fresh screenshot (`observeAfterAction`) so the model can immediately verify the result.
+The plugin ships a tiny Python helper `xc.py` that talks to the X server through `ctypes` (`libX11` + `libXtst`), so it needs **no external Python packages** and no Node native modules. Every input action reports the **native pixel coordinates the OS actually registered**, and every input action can optionally attach a fresh screenshot (`observeAfterAction`) so the model can immediately verify the result. See [architecture](docs/architecture.md) for the full design.
 
 ```text
 DSH agent ──► index.js (Cordis tools) ──► xc.py (ctypes/libX11+libXtst) ──► X server ──► your desktop
@@ -138,6 +138,8 @@ Override in the profile `cordis.patch.yml` (later layers replace the whole `conf
 | `sandboxMode` | `danger-full-access` | Needed for unconfined X11 input |
 | `observeAfterAction` | `true` | Screenshot attached to click/type/key/… results |
 | `nudgeAnnouncedTools` | `false` | Leave off; auto-followup can flood context |
+
+**:warning: This is full desktop control.** Read [SECURITY.md](SECURITY.md) before enabling it on any machine you care about.
 
 ## License
 
