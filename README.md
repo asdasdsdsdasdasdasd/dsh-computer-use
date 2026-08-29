@@ -8,7 +8,6 @@ A [DeepSeek Harness](https://github.com/deepseek-harness/deepseek-harness) plugi
 
 This is **not** an official DeepSeek package. It drives the real pointer and keyboard through XTest. Treat it as full desktop control.
 
-![Demo](demo/demo.gif)
 
 ## Which computer-use plugin is right for you?
 
